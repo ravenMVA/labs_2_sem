@@ -2,7 +2,7 @@
 #include "tree.h"
 #include <stdio.h>
 
-// Функция для создания нового узла
+// Функция для создания нового узла дерева
 Tree* create_tree(int value) {
     Tree* new_tree = (Tree*)malloc(sizeof(Tree));
     new_tree->value = value;
