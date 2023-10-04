@@ -1,4 +1,5 @@
 #include "mystack.h"
+#include <stdint.h>
 
 StackNode* create_node(int value) {
     StackNode* new_node = (StackNode*)malloc(sizeof(StackNode));
