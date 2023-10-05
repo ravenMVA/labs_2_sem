@@ -1,5 +1,5 @@
 #include "mystack.h"
-#include <stdint.h>
+#include <limits.h>
 
 StackNode* create_node(int value) {
     StackNode* new_node = (StackNode*)malloc(sizeof(StackNode));
@@ -81,7 +81,7 @@ void print_stack(StackNode* top) {
 
 int delete_max_elem(Stack* stack, int* max) {
     if (is_empty(stack)) {
-        return INT32_MIN;
+        return INT_MIN;
     }
     int data = pop(stack);
     if (data > *max) {
@@ -103,7 +103,7 @@ void sort_stack(Stack* stack) {
     Stack* sorted_stack = create_stack();
 
     while (!is_empty(stack)) {
-        int max_value = INT32_MIN;
+        int max_value = INT_MIN;
         delete_max_elem(stack, &max_value);
         push(sorted_stack, max_value);
     }
@@ -116,5 +116,3 @@ void sort_stack(Stack* stack) {
     delete_stack(sorted_stack);
     return;
 }
-
-
