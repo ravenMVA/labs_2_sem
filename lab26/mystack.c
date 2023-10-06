@@ -4,7 +4,7 @@
 StackNode* create_node(int value) {
     StackNode* new_node = (StackNode*)malloc(sizeof(StackNode));
     if (new_node == NULL) {
-        printf("ОШИБКА ИНИЦИАЛИЗАЦИИ УЗЛА СТЕКА\n");
+        printf("ERROR INITIALIZING STACK NODE\n");
         exit(1);
     }
     new_node->data = value;
@@ -15,7 +15,7 @@ StackNode* create_node(int value) {
 Stack* create_stack() {
     Stack* new_stack = (Stack*)malloc(sizeof(Stack));
     if (new_stack == NULL) {
-        printf("ОШИБКА ИНИЦИАЛИЗАЦИИ СТЕКА\n");
+        printf("ERROR INITIALIZING STACK\n");
         exit(1);
     }
     new_stack->top = NULL;
@@ -41,7 +41,7 @@ void push(Stack* stack, int value) {
 
 int pop(Stack* stack) {
     if (is_empty(stack)) {
-        printf("СТЕК ПУСТ\n");
+        printf("STACK IS EMPTY\n");
         exit(1);
     }
     StackNode* temp = stack->top;
@@ -53,7 +53,7 @@ int pop(Stack* stack) {
 
 int check_top(Stack* stack) {
     if (is_empty(stack)) {
-        printf("СТЕК ПУСТ\n");
+        printf("STACK IS EMPTY\n");
         exit(1);
     }
     int value = pop(stack);
@@ -65,6 +65,7 @@ void delete_stack(Stack* stack) {
     while (!is_empty(stack)) {
         pop(stack);
     }
+    free(stack);
     return;
 }
 
@@ -97,7 +98,7 @@ int delete_max_elem(Stack* stack, int* max) {
 
 void sort_stack(Stack* stack) {
     if (is_empty(stack)) {
-        printf("Стек пуст\n");
+        printf("Stack is empty\n");
         return;
     }
     Stack* sorted_stack = create_stack();
