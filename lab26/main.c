@@ -1,6 +1,8 @@
+// Var S1
 #include "stdio.h"
 #include "stdlib.h"
 #include "mystack.h"
+#include <limits.h>
 
 int main() {
     Stack* stack = create_stack();
@@ -8,53 +10,52 @@ int main() {
     while (1) {
         int value;
         int choice = 0;
-    	printf("1. Push (добавить)\n");
-        printf("2. Pop (извлечь)\n");
-        printf("3. Вывести стек\n");
-        printf("4. Отсортировать стек\n");
-        printf("5. Удалить наибольший элемент\n");
-        printf("6. Выйти\n");
+    	printf("1. Push (add)\n");
+        printf("2. Pop (extract)\n");
+        printf("3. Print stack\n");
+        printf("4. Sort stack\n");
+        printf("5. Delete largest element\n");
+        printf("6. Exit\n");
 
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-                printf("Введите значение: ");
+                printf("Enter a value: ");
         		scanf("%d", &value);
        	 		push(stack, value);
-                printf("Элемент добавлен.\n");
+                printf("Element is added.\n");
                 break;
             case 2:
                 if (is_empty(stack)) {
-                    printf("Стек пуст\n");
+                    printf("Stack is empty\n");
                     break;
                 }
-                printf("Верхний элемент [ %d ] извлечен.\n", pop(stack));
+                printf("Highest element [ %d ] extracted.\n", pop(stack));
                 break;
             case 3:
-                printf("Стек:\n");
+                printf("Stack:\n");
     			print_stack(stack->top);
                 printf("===\n");
                 break;
             case 4:
                 sort_stack(stack);
-                printf("Стэк отсортирован\n");
+                printf("Stack is sorted\n");
                 break;
             case 5: {
-                int max = INT32_MIN;
+                int max = INT_MIN;
                 delete_max_elem(stack, &max);
-                printf("Наибольший элемент удален\n");
+                printf("Largest element deleted\n");
                 break;
             }
             case 6:
                 delete_stack(stack);
                 return 0;
             default:
-                printf("НЕКОРРЕКТНЫЙ ВВОД\n");
+                printf("INCORRECT INPUT\n");
                 break;
         }
     }
 
-    delete_stack(stack);
     return 0;
 }
