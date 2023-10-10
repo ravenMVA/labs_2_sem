@@ -217,7 +217,7 @@ tree* create_tree(queue* q) {
     t->root = dequeue(reverse_q);
     t->root->l_ch = add_to_tree(dequeue(reverse_q), reverse_q);
     t->root->r_ch = add_to_tree(dequeue(reverse_q), reverse_q);
-
+free(reverse_q);
     return t;
 }
 
@@ -331,4 +331,5 @@ void free_node(node* n) {
 void delete_tree(tree* t) {
     free_node(t->root);
     t->root = NULL;
+    free(t);
 }
