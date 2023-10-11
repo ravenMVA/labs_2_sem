@@ -1,0 +1,21 @@
+// Вариант 19
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "tree.h"
+
+int main() {
+    Tree* root = NULL;
+    
+    while (1) {
+        int value;
+        int choice = 0;
+    	printf("1. Добавить узел\n");
+        printf("2. Удалить узел\n");
+        printf("3. Вывести дерево на экран\n");
+        printf("4. Найти ширину двоичного дерева\n");
+        printf("5. Выйти\n");
+
+   // Вариант 19
+#include <stdio.h>
+#include <stdlib.h>
