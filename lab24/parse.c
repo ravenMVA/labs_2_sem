@@ -193,8 +193,8 @@ node* add_to_tree(node* n, queue* q) {
         return n;
     }
     node* temp = n;
-    temp->l_ch = add_to_tree(dequeue(q), q);
     temp->r_ch = add_to_tree(dequeue(q), q);
+    temp->l_ch = add_to_tree(dequeue(q), q);
     return temp;
 }
 
@@ -215,8 +215,8 @@ tree* create_tree(queue* q) {
     // ======================
     tree* t = (tree*)malloc(sizeof(tree));
     t->root = dequeue(reverse_q);
-    t->root->l_ch = add_to_tree(dequeue(reverse_q), reverse_q);
     t->root->r_ch = add_to_tree(dequeue(reverse_q), reverse_q);
+    t->root->l_ch = add_to_tree(dequeue(reverse_q), reverse_q);
 free(reverse_q);
     return t;
 }
