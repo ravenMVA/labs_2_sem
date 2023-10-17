@@ -68,6 +68,7 @@ int main(int argc, char** argv) {
                     free(t_sorted);
                 }
                 free_table(t);
+                fclose(fd);
     			return 0;
                 break;
             default:
