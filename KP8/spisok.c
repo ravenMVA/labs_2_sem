@@ -38,6 +38,35 @@ void append(list* l, double value) {
     return;
 }
 
+// Вставка элемента по индексу
+void insert(list* l, int index, double value) {
+    if (index < 0 || index >= l->size) {
+        printf("Индекс за пределами допустимого диапазона\n");
+        return;
+    }
+    node* n = (node*)malloc(sizeof(node));
+    if (n == NULL) {
+        perror("Ошибка выделения памяти");
+        exit(1);
+    }
+    n->value = value;
+    if (index == 0) {
+        n->next = l->root;
+        l->root = n;
+    } else {
+        node* current = l->root;
+        node* prev = current;
+        for (int i = 0; i < index; i++) {
+            prev = current;
+            current = current->next;
+        }
+        n->next = current;
+        prev->next = n;
+    }
+    l->size++;
+    return;
+}
+
 void remove_node(list* l, int index) {
     if (index < 0 || index >= l->size) {
         printf("Индекс за пределами допустимого диапазона\n");
