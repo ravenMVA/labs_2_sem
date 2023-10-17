@@ -41,6 +41,7 @@ int main(int argc, char **argv) {
 
         free_sparse(sp);
         n++;
+        fclose(fd);
     }
 
     
