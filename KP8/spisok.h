@@ -20,6 +20,9 @@ list* create_list();
 // Добавление элемента в конец списка
 void append(list* l, double value);
 
+// Вставка по индексу
+void insert(list* l, int index, double value);
+
 // Удаление элемента по индексу
 void remove_node(list* l, int idx);
 
